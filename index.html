@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GID - Get It Done</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="shortcut icon" href="assets/icons/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="styles/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Get It Done</h1>
+  </header>
+
+  <section class="timer-container">
+    <div class="mode-buttons">
+      <button id="pomodoro" class="active">Pomodoro</button>
+      <button id="short">Pausa Curta</button>
+      <button id="long">Pausa Longa</button>
+    </div>
+    <div class="timer">
+      <span id="minutes">25</span><span>:</span><span id="seconds">00</span>
+    </div>
+    <div class="controls">
+      <button id="start">Iniciar</button>
+      <button id="pause" class="disable">Pausar</button>
+      <button id="reset" class="disable">Resetar</button>
+    </div>
+  </section>
+
+  <main>
+    <aside>
+      <button id="new-folder" class="add">Nova Pasta <i class="fa-solid fa-folder"></i></button>
+      <ul id="folder-list"></ul>
+    </aside>
+
+    <section class="tasks">
+      <h3 id="task-title">Selecione uma pasta</h3>
+      <div class="filter-group">
+        <button data-filter="all" class="filter active">Todas</button>
+        <button data-filter="pending" class="filter">Pendentes</button>
+        <button data-filter="done" class="filter">Concluídas</button>
+      </div>
+      <div id="task-form" style="display:none;">
+        <input type="text" id="input-task" placeholder="Nova tarefa" />
+        <button id="add-task" class="add">Adicionar</button>
+      </div>
+      <ul id="task-list"></ul>
+    </section>
+  </main>
+
+<div id="input-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2 id="input-modal-title">Título</h2>
+    <input type="text" id="input-modal-text" />
+    <div class="modal-buttons">
+      <button id="input-modal-ok">OK</button>
+      <button id="input-modal-cancel">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<div id="alert-modal" class="modal hidden">
+  <div class="modal-content">
+    <p id="alert-modal-message">Mensagem aqui</p>
+    <div class="modal-buttons">
+      <button id="alert-modal-ok">OK</button>
+    </div>
+  </div>
+</div>
+
+<div id="priority-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>Escolha a prioridade</h2>
+    <div class="priority-options">
+      <button class="priority-btn" data-priority="alta">Alta</button>
+      <button class="priority-btn" data-priority="media">Média</button>
+      <button class="priority-btn" data-priority="baixa">Baixa</button>
+    </div>
+    <div class="modal-buttons">
+      <button id="cancel-priority">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<div id="deadline-modal" class="modal hidden">
+  <div class="modal-content">
+    <h2>Definir data limite</h2>
+    <input type="date" id="deadline-input" />
+    <div class="modal-buttons">
+      <button id="confirm-deadline">Confirmar</button>
+      <button id="cancel-deadline">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+  <script src="scripts/timer.js"></script>
+  <script src="scripts/folders-tasks.js"></script>
+  <script src="scripts/modals.js"></script>
+</body>
+</html>
